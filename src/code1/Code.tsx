@@ -19,15 +19,15 @@ interface DeeperProps {
   }
 }
 
-const DeepterComponent = memo((props: DeeperProps) => {
+const DeepterComponent = (props: any) => {
   useEffect(() => {
     console.log("DeepterComponent has been rendered");
   })
   
   return (
-    <h1>{props.counter.counter}</h1>
+    <h1>{props.counter}</h1>
   )
-})
+}
 function Code(props : any) {
   const [_, setCounter] = useState(0);
   const handleClick = () => {
@@ -36,7 +36,9 @@ function Code(props : any) {
   return (
     <>
       <Component counter={100} />
-      <DeepterComponent counter={{counter : 100}} />
+      <DeepterComponent counter={100} />
+      <button onClick={handleClick}>+
+      </button>
     </>
   )
 }
